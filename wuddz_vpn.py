@@ -12,7 +12,7 @@
  [*]Github:    https://github.com/wuddz-devs                                                        
  [*]Telegram:  https://t.me/wuddz_devs                                                              
  [*]Videos:    https://mega.nz/folder/IWVAXTqS#FoZAje2NukIcIrEXXKTo0w                               
- [*]Reddit:    https://reddit.com/users/wuddz-devs                                                  
+ [*]Reddit:    https://reddit.com/user/wuddz-devs                                                   
  [*]Youtube:   wuddz-devs                                                                           
 
  [*]Menu:
@@ -38,8 +38,8 @@ def get_menu():
     if a:return
 
 def get_config(ptc,vpnc=None):
-    clear_screen()
     try:
+        clear_screen()
         vpnl=Path.joinpath(Path.cwd(),ptc)
         if vpnc!=None:
             if '-' in str(vpnc):cnf=list(Path(vpnl).rglob(vpnc+'*.ovpn'))
@@ -52,7 +52,7 @@ def get_config(ptc,vpnc=None):
             with open(ovp, 'w', encoding='utf-8') as ovw:
                 for line in ovr:
                     ovw.write(str(line).replace('cipher AES-256-CBC', 'data-ciphers-fallback AES-256-CBC'))
-        return ovp,ove
+        return ovp
     except:pass
 
 def nord_location(pc,opvpn):
@@ -91,14 +91,17 @@ def nord_location(pc,opvpn):
             vpna=input('\033[1;32;40m'+nord_location.__doc__+'\033[0m\nInput Country Code or b=> ') or None
             if vpna=='b':break
             elif vpna.lower()+' =' in str(nord_location.__doc__):
-                ovp,ove=get_config(ptc,vpnc=vpna.lower())
+                ovp=get_config(ptc,vpnc=vpna.lower())
                 vpn_connect(ovp,opvpn)
         except:pass
 
 def vpn_connect(ovp,opvpn):
     try:
         vpna=Path.joinpath(Path.cwd(),'vpncreds.txt')
-        with Popen([opvpn, '--config', ovp, '--auth-user-pass', vpna, '--connect-timeout', '10', '--connect-retry-max', '2', '--remap-usr1', 'SIGTERM'], shell=False, stdout=PIPE, bufsize=1, universal_newlines=True) as vco:
+        cmd=[opvpn, '--config', ovp, '--auth-user-pass', vpna,
+            '--connect-timeout', '10', '--connect-retry-max',
+            '2', '--remap-usr1', 'SIGTERM']
+        with Popen(cmd, stdout=PIPE, universal_newlines=True) as vco:
             for l in vco.stdout:
                 if str(l).count('AUTH_FAILED')!=0:print('\n\033[1;34;40mAccount Not Valid\033[0m')
                 elif str(l).count('Initialization Sequence Completed')!=0:
@@ -135,7 +138,7 @@ def main():
             if vp=='e':break
             elif vp=='1':nord_main(opvpn)
             elif vp=='2':
-                ovp,ove=get_config('alt_configs')
+                ovp=get_config('alt_configs')
                 vpn_connect(ovp,opvpn)
             elif vp=='p':
                 clear_screen()
