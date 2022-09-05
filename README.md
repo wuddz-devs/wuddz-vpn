@@ -21,7 +21,7 @@
 
 - Install openvpn  [Link: https://openvpn.net/community-downloads]
 
-- Download Alternate VPN Provider's '.ovpn' Config Files For Servers Your Account Is Capable Of Connecting To, Copy & Paste Them In "alt_configs" Folder.
+- Download Alternate VPN Provider's '.ovpn' Config Files For Servers Your Account Is Capable Of Connecting To, Copy & Paste Them In "alt_tcp" & "alt_udp" Folders Respective Of Protocol.
 
 - Replace "username" & "password" In "vpncreds.txt" File With Username & Password Of Valid VPN Account Respectively.
 
@@ -32,6 +32,8 @@
 - Type Or Paste "python wuddz_vpn.py" To Launch Wuddz-Vpn
 
 - If Installed Openvpn Client On Windows Is Not In "C:\Program Files\OpenVPN\bin" Simply Choose "p" At Menu To Specify "openvpn.exe" File Path
+
+- If You'd Prefer Not To Install Python Download The Latest Release Above Right, Extract It And Execute "wudz-vpn.exe".
 
 - When VPN Connection Is Initialized The Edited ".ovpn" Config File Of Server Being Connected To Is Copied To The Repository Root Folder & Removed When VPN Is Disconnected.
 
