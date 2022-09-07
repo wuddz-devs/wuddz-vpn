@@ -48,9 +48,12 @@
 - Email:     wuddz_devs@protonmail.com
 - Github:    https://github.com/wuddz-devs
 - Telegram:  https://t.me/wuddz_devs
-- Videos:    https://mega.nz/folder/IWVAXTqS#FoZAje2NukIcIrEXXKTo0w
 - Reddit:    https://reddit.com/user/wuddz-devs
 - Youtube:   wuddz-devs
+
+
+## Illustration Video:
+- https://youtu.be/u09yjwVZkhw
 
 
 ### Buy Me A Coffee
